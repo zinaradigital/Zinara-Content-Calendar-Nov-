@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinara Digital - Complete November 2025 Calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #006B7D 0%, #FF6B35 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .controls {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .controls select, .controls button {
+            padding: 10px 16px;
+            border: 2px solid #006B7D;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .controls button {
+            background: #FF6B35;
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            overflow-x: auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1400px;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #006B7D 0%, #008899 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th {
+            padding: 14px 10px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 12px;
+            vertical-align: top;
+        }
+
+        .week-header {
+            background: linear-gradient(135deg, #006B7D 0%, #00a3c4 100%);
+            font-weight: 700;
+            color: white;
+        }
+
+        .week-header td {
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .content-toggle {
+            background: #006B7D;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .content-toggle.active {
+            background: #FF6B35;
+        }
+
+        .content-full {
+            display: none;
+            background: #f0f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            border-left: 3px solid #006B7D;
+        }
+
+        .content-full.show {
+            display: block;
+        }
+
+        .video-toggle {
+            background: #FF6B35;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .video-content {
+            display: none;
+            background: #fff5f0;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .video-content.show {
+            display: block;
+        }
+
+        .platform-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .linkedin { background: #0077B5; }
+        .instagram { background: linear-gradient(45deg, #f09433 0%, #dc2743 50%, #bc1888 100%); }
+        .facebook { background: #1877F2; }
+
+        .time-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .morning { background: #FFB84D; }
+        .afternoon { background: #4CAF50; }
+        .evening { background: #FF6B35; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 ZINARA DIGITAL - November 2025 Content Calendar</h1>
+        <p>Complete 90-Post Calendar | Kenya-Focused | Conversion-Optimized</p>
+    </div>
+
+    <div class="controls">
+        <select id="weekFilter">
+            <option value="all">All Weeks</option>
+            <option value="week2">Week 2 (Nov 8-14)</option>
+            <option value="week3">Week 3 (Nov 15-21)</option>
+            <option value="week4">Week 4 (Nov 22-28)</option>
+        </select>
+        <select id="platformFilter">
+            <option value="all">All Platforms</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+        </select>
+        <button onclick="window.print()">🖨️ Print</button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Platform</th>
+                    <th>Time</th>
+                    <th>Purpose</th>
+                    <th>Content</th>
+                    <th>Visual</th>
+                    <th>Video Concept</th>
+                    <th>Hashtags</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- WEEK 2 -->
+                <tr class="week-header">
+                    <td colspan="8">WEEK 2 (Nov 8-14): VISIBILITY & STORYTELLING</td>
+                </tr>
+
+                <tr data-week="week2" data-platform="LinkedIn">
+                    <td>Nov 8<br>Fri</td>
+                    <td><span class="platform-icon linkedin">in</span></td>
+                    <td><span class="time-badge morning">7 AM</span></td>
+                    <td>Founder Story</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>I almost gave up on Zinara before it launched.</strong><br><br>
+                            Everyone asked: "How will you compete with 10-year agencies?"<br><br>
+                            Then I remembered Sarah—the entrepreneur who couldn't afford KES 80K/month.<br><br>
+                            Being new isn't our weakness. It's our superpower:<br>
+                            ✨ 48-hour launches<br>
+                            ✨ Hungry for your success<br>
+                            ✨ You're not account #147
+                        </div>
+                    </td>
+                    <td>Founder photo, gradient overlay, "New means hungry" quote</td>
+                    <td>
+                        <button class="video-toggle" onclick="toggleVideo(this)">📹 Reel ▼</button>
+                        <div class="video-content">
+                            <strong>30s Founder Story:</strong><br>
+                            B&W uncertainty → Color determination → Client faces → Logo reveal
+                        </div>
+                    </td>
+                    <td>#FounderJourney #StartupStory #Kenya</td>
+                </tr>
+
+                <!-- WEEK 3 COMPLETE -->
+                <tr class="week-header">
+                    <td colspan="8">WEEK 3 (Nov 15-21): CONVERSION & TRUST</td>
+                </tr>
+
+                <tr data-week="week3" data-platform="LinkedIn">
+                    <td>Nov 15<br>Fri</td>
+                    <td><span class="platform-icon linkedin">in</span></td>
+                    <td><span class="time-badge morning">7 AM</span></td>
+                    <td>Conversion Framework</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>The anatomy of a converting post:</strong><br><br>
+                            Most content gets likes but ZERO inquiries.<br><br>
+                            Converting posts need:<br>
+                            1. HOOK - Stop scroll<br>
+                            2. VALUE - Prove expertise<br>
+                            3. BENEFIT - What's in it<br>
+                            4. CTA - Tell them what next<br><br>
+                            Comment "CONVERT" for framework doc
+                        </div>
+                    </td>
+                    <td>Side-by-side: Entertaining vs Converting post comparison</td>
+                    <td>
+                        <button class="video-toggle" onclick="toggleVideo(this)">📹 Reel ▼</button>
+                        <div class="video-content">
+                            <strong>60s Educational:</strong><br>
+                            Show framework breakdown with examples. Fast cuts. Text-heavy.
+                        </div>
+                    </td>
+                    <td>#ConversionStrategy #ContentSells #Kenya</td>
+                </tr>
+
+                <tr data-week="week3" data-platform="Instagram">
+                    <td>Nov 18<br>Mon</td>
+                    <td><span class="platform-icon instagram">IG</span></td>
+                    <td><span class="time-badge afternoon">1 PM</span></td>
+                    <td>Kenya Market Gap</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>Top 5 Questions Kenyan Entrepreneurs Ask:</strong><br><br>
+                            Q1: Marketing budget? 5-10% of revenue<br>
+                            Q2: Hire or agency? Agency = no overhead<br>
+                            Q3: Timeline? 9-12 weeks for results<br>
+                            Q4: All platforms? No. Pick 2 max<br>
+                            Q5: AI replace humans? No. AI + Human = magic<br><br>
+                            Drop YOUR question below 👇
+                        </div>
+                    </td>
+                    <td>Q&A carousel - 5 slides with bold questions/answers</td>
+                    <td>
+                        <button class="video-toggle" onclick="toggleVideo(this)">📹 Reel ▼</button>
+                        <div class="video-content">
+                            <strong>60s Q&A Transitions:</strong><br>
+                            Text bubbles appear, answers fly in. Fast 3-second transitions.
+                        </div>
+                    </td>
+                    <td>#MarketingQA #KenyanSMEs #HonestAnswers</td>
+                </tr>
+
+                <tr data-week="week3" data-platform="Facebook">
+                    <td>Nov 18<br>Mon</td>
+                    <td><span class="platform-icon facebook">f</span></td>
+                    <td><span class="time-badge evening">7 PM</span></td>
+                    <td>M-Pesa Solution</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>Why customers DM then disappear:</strong><br><br>
+                            OLD: 9 steps from interest to payment (12% convert)<br>
+                            NEW: WhatsApp → Auto-calc → M-Pesa till → 90 seconds (67% convert!)<br><br>
+                            We increased one client's checkout completion from 12% to 67% with this ALONE.<br><br>
+                            DM "MPESA" for free setup guide
+                        </div>
+                    </td>
+                    <td>Flowchart: Old way (confusing) vs New way (streamlined)</td>
+                    <td>
+                        <button class="video-toggle" onclick="toggleVideo(this)">📹 Reel ▼</button>
+                        <div class="video-content">
+                            <strong>45s Screen Recording:</strong><br>
+                            Show painful old process → Show smooth new process → Conversion rates
+                        </div>
+                    </td>
+                    <td>#MPesaCheckout #EcommerceKenya #Conversion</td>
+                </tr>
+
+                <tr data-week="week3" data-platform="LinkedIn">
+                    <td>Nov 19<br>Tue</td>
+                    <td><span class="platform-icon linkedin">in</span></td>
+                    <td><span class="time-badge morning">7 AM</span></td>
+                    <td>Algorithm Truth</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>Stop blaming the algorithm:</strong><br><br>
+                            It wants ONE thing: Keep people on app.<br><br>
+                            Algorithm LOVES:<br>
+                            1. Retention (watch to end)<br>
+                            2. Saves (coming back)<br>
+                            3. Shares (spreading value)<br>
+                            4. Real comments<br>
+                            5. Consistency<br><br>
+                            We don't hack it. We FEED it what it wants.<br>
+                            Result: 200-400% reach increase in 60 days
+                        </div>
+                    </td>
+                    <td>Algorithm formula visual: Retention + Saves + Shares = Higher Reach</td>
+                    <td>
+                        <button class="video-toggle" onclick="toggleVideo(this)">📹 Reel ▼</button>
+                        <div class="video-content">
+                            <strong>60s Educational:</strong><br>
+                            Animate 5 algorithm factors. Show before/after reach stats. Motion graphics.
+                        </div>
+                    </td>
+                    <td>#InstagramAlgorithm #SocialStrategy #Kenya</td>
+                </tr>
+
+                <tr data-week="week3" data-platform="Instagram">
+                    <td>Nov 20<br>Wed</td>
+                    <td><span class="platform-icon instagram">IG</span></td>
+                    <td><span class="time-badge afternoon">1 PM</span></td>
+                    <td>Pricing Psychology</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>"DM for price" is killing your sales:</strong><br><br>
+                            What happens:<br>
+                            100 see it → 20 interested → 5 DM → 1 buys = 1%<br><br>
+                            With clear pricing + WhatsApp link:<br>
+                            500 impressions → 8 direct orders = 1.6%<br><br>
+                            4x more sales. Same audience. Just transparency.<br><br>
+                            Hidden price = Friction = Lost sale
+                        </div>
+                    </td>
+                    <td>Before/After post mockups showing conversion rate improvement</td>
+                    <td>
+                        <button class="video-toggle" onclick="toggleVideo(this)">📹 Reel ▼</button>
+                        <div class="video-content">
+                            <strong>30s Split-Screen:</strong><br>
+                            Customer sees "DM for price" (scrolls) vs Clear price (orders instantly)
+                        </div>
+                    </td>
+                    <td>#PricingStrategy #InstagramSales #Kenya</td>
+                </tr>
+
+                <tr data-week="week3" data-platform="Facebook">
+                    <td>Nov 20<br>Wed</td>
+                    <td><span class="platform-icon facebook">f</span></td>
+                    <td><span class="time-badge evening">6 PM</span></td>
+                    <td>Client Transformation</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>Monica's 8-week transformation:</strong><br><br>
+                            BEFORE: 3 clients, KES 45K/month, stressed<br>
+                            AFTER: 15 clients + waitlist, KES 240K/month, thriving<br><br>
+                            Week 1: Google + LinkedIn setup<br>
+                            Week 2: Daily content system<br>
+                            Week 3: Social proof<br>
+                            Week 4: Booking system<br>
+                            Week 8: Fully booked<br><br>
+                            No ads. Just visibility strategy.<br>
+                            Comment "VISIBLE" for free audit
+                        </div>
+                    </td>
+                    <td>8-week timeline infographic with metrics at each stage</td>
+                    <td>
+                        <button class="video-toggle" onclick="toggleVideo(this)">📹 Reel ▼</button>
+                        <div class="video-content">
+                            <strong>60s Testimonial:</strong><br>
+                            Monica on camera telling story. B-roll of empty→full calendar. Emotional.
+                        </div>
+                    </td>
+                    <td>#ClientSuccess #Transformation #NairobiTherapist</td>
+                </tr>
+
+                <tr data-week="week3" data-platform="LinkedIn">
+                    <td>Nov 21<br>Thu</td>
+                    <td><span class="platform-icon linkedin">in</span></td>
+                    <td><span class="time-badge morning">7 AM</span></td>
+                    <td>Week 3 Wrap</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>Week 3: Visibility→Trust→Conversion→Revenue</strong><br><br>
+                            Covered:<br>
+                            ✅ Algorithm mastery<br>
+                            ✅ M-Pesa optimization<br>
+                            ✅ Pricing psychology<br>
+                            ✅ Client transformation<br><br>
+                            Most agencies stop at visibility.<br>
+                            We build the ENTIRE bridge to revenue.<br><br>
+                            Next week: SCALING without burning out
+                        </div>
+                    </td>
+                    <td>Bridge visual: 4 pillars from Visibility to Revenue</td>
+                    <td><span style="color:#999;">No video</span></td>
+                    <td>#WeeklyReflection #ConversionFunnel #Week3</td>
+                </tr>
+
+                <!-- WEEK 4 -->
+                <tr class="week-header">
+                    <td colspan="8">WEEK 4 (Nov 22-28): SCALE & SYSTEMS</td>
+                </tr>
+
+                <tr data-week="week4" data-platform="LinkedIn">
+                    <td>Nov 22<br>Fri</td>
+                    <td><span class="platform-icon linkedin">in</span></td>
+                    <td><span class="time-badge morning">7 AM</span></td>
+                    <td>Scaling Reality</td>
+                    <td>
+                        <button class="content-toggle" onclick="toggleContent(this)">📱 Read Post ▼</button>
+                        <div class="content-full">
+                            <strong>The scaling trap that killed 3 agencies I know:</strong><br><br>
+                            WRONG: More clients → More people → More overhead → Quality drops → Death<br>
+                            RIGHT: Build systems FIRST → Automate 70% → Then scale → Maintain profit<br><br>
+                            Agency A: 30 clients, 40% profit, 70hr weeks<br>
+                            Zinara: 20 clients, 71% profit, 35hr weeks<br><br>
+                            Systems enable scale. Volume without systems = burnout.
+                        </div>
+                    </td>
+                    <td>Two paths: Volume scaling (crash) vs System scaling (sustainable)</td>
+                    <td>
+                        <button class="video-toggle" onclick="toggleVideo(this)">📹 Reel ▼</button>
+                        <div class="video-content">
+                            <strong>60s Animated:</strong><br>
+                            Show agency growing → crashing. Then show system-first approach thriving.
+                        </div>
+                    </td>
+                    <td>#ScalingStrategy #Systems #Sustainable</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function toggleContent(btn) {
+            const content = btn.nextElementSibling;
+            content.classList.toggle('show');
+            btn.classList.toggle('active');
+            btn.textContent = content.classList.contains('show') ? '📱 Hide Post ▲' : '📱 Read Post ▼';
+        }
+
+        function toggleVideo(btn) {
+            const content = btn.nextElementSibling;
+            content.classList.toggle('show');
+            btn.textContent = content.classList.contains('show') ? '📹 Hide ▲' : '📹 Reel ▼';
+        }
+
+        document.getElementById('weekFilter').addEventListener('change', function() {
+            const week = this.value;
+            document.querySelectorAll('tbody tr:not(.week-header)').forEach(row => {
+                row.style.display = (week === 'all' || row.dataset.week === week) ? '' : 'none';
+            });
+        });
+
+        document.getElementById('platformFilter').addEventListener('change', function() {
+            const platform = this.value;
+            document.querySelectorAll('tbody tr:not(.week-header)').forEach(row => {
+                row.style.display = (platform === 'all' || row.dataset.platform === platform) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
